@@ -1,1 +1,86 @@
-# 
+# Analyse de Produits Dérivés
+
+Ce projet regroupe l'ensemble de mes travaux réalisés dans le cadre de l'étude de l'évaluation des produits dérivés financiers avec Python. Il couvre un large spectre de sujets allant de la construction de l'infrastructure d'évaluation risque-neutre jusqu'à la calibration de modèles sur données de marché, en passant par la simulation Monte Carlo et le pricing d'options européennes et américaines.
+
+## Technologies utilisées
+
+| Catégorie | Librairies |
+|---|---|
+| Calcul scientifique | `numpy`, `scipy`, `pandas` |
+| Visualisation | `matplotlib` |
+| Finance | `yfinance` |
+
+> **Python 3.10+** — Voir le fichier [INSTALLATION.md](INSTALLATION.md) pour la mise en place de l'environnement virtuel.
+
+---
+
+## Structure du projet
+
+### Module 0 — Infrastructure d'évaluation
+
+Ce module pose les fondations théoriques et techniques de l'évaluation des produits dérivés : théorème fondamental, actualisation risque-neutre et construction de l'environnement de marché.
+
+| Fichier | Description |
+|---|---|
+| `1_Theoreme_fondamental_d_evaluation_des_actifs.py` | *À venir* — Formalisation du cadre théorique d'absence d'arbitrage et existence de la mesure risque-neutre. |
+| `2_Actualisation_risque_neutre.py` | *À venir* — Mécanismes d'actualisation sous la probabilité risque-neutre. |
+| `3_Environnement_de_marche.py` | *À venir* — Classe regroupant les paramètres de marché (taux sans risque, volatilité, dividendes…). |
+
+---
+
+### Module 1 — Simulation de modèles financiers
+
+Ce module implémente les processus stochastiques nécessaires à la simulation Monte Carlo : génération de nombres aléatoires, mouvement brownien géométrique, diffusion par sauts et modèle CIR.
+
+| Fichier | Description |
+|---|---|
+| `1_Generation_de_nombres_aleatoires.py` | *À venir* — Génération de variables aléatoires pour les simulations Monte Carlo. |
+| `2_Classe_de_simulation_generique.py` | *À venir* — Classe mère abstraite pour tous les processus stochastiques. |
+| `3_Mouvement_brownien_geometrique.py` | *À venir* — Simulation du mouvement brownien géométrique (dynamique Black-Scholes). |
+| `4_Diffusion_par_sauts.py` | *À venir* — Modèle de Merton avec sauts log-normaux. |
+| `5_Diffusion_a_racine_carree_CIR.py` | *À venir* — Processus de Cox-Ingersoll-Ross pour la modélisation des taux d'intérêt. |
+
+---
+
+### Module 2 — Évaluation de produits dérivés
+
+Ce module construit les classes de pricing par Monte Carlo pour les options européennes et américaines, en s'appuyant sur les simulations du module précédent.
+
+| Fichier | Description |
+|---|---|
+| `1_La_classe_d_evaluation_generique.py` | *À venir* — Classe mère pour le pricing de produits dérivés par Monte Carlo. |
+| `2_La_classe_d_exercice_europeen.py` | *À venir* — Pricing d'options européennes (calls, puts, digitales…). |
+| `3_La_classe_d_exercice_americain.py` | *À venir* — Pricing d'options américaines via l'algorithme de Longstaff-Schwartz (LSM). |
+
+---
+
+### Module 3 — Évaluation de portefeuille
+
+Ce module étend l'évaluation à l'échelle d'un portefeuille multi-actifs en modélisant les positions individuelles puis en les agrégeant.
+
+| Fichier | Description |
+|---|---|
+| `1_Position_de_produits_derives.py` | *À venir* — Modélisation d'une position individuelle (quantité, sous-jacent, payoff). |
+| `2_Portefeuille_de_produits_derives.py` | *À venir* — Agrégation et évaluation d'un portefeuille de produits dérivés. |
+| `3_Autres_ressources.py` | *À venir* — Ressources complémentaires et utilitaires. |
+
+---
+
+### Module 4 — Évaluation basée marché
+
+Ce module confronte les modèles théoriques aux données réelles du marché : récupération des cotations d'options, calibration des paramètres et évaluation du portefeuille avec les paramètres calibrés.
+
+| Fichier | Description |
+|---|---|
+| `1_Les_donnees_des_options.py` | *À venir* — Récupération et traitement des données d'options cotées sur le marché. |
+| `2_La_calibration_du_modele.py` | *À venir* — Calibration des paramètres du modèle sur les prix de marché observés. |
+| `3_L_evaluation_du_portefeuille.py` | *À venir* — Évaluation du portefeuille avec les paramètres calibrés. |
+
+---
+
+## Exécution
+
+### Scripts Python
+```bash
+python '.\Module X - Nom du module\<nom_du_script>.py'
+```
