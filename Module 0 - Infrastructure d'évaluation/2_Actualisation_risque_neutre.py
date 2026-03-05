@@ -10,11 +10,6 @@ On va diviser l'intervalle temporel entre le jour même et la date de maturité 
 Les intervalles peuvent être tous de même longueur ou pas. La librairire d'évaluation doit être en mesure de gérer le cas général d'intervalles non homogènes. 
 Le code doit fonctionner avec des listes de dates, nous supposerons que la durée minimale est égale à un jour. 
 Les évèvenements intraday sont considérés comme non pertinents, car cela supposerait de mobiliser également le temps en plus de la date. 
-
-2 approches sont possibles pour modéliser les dates :
-- Construire la liste explicitement, sous formes d'objets datetime 
-- Travailler avec des fractions d'année sous forme de valeurs décimales
-
 '''
 
 
@@ -32,14 +27,23 @@ import sys
 sys.path.append('../dx')
 
 
-# Les 2 définition dates et fractions d'année sont équivalentes 
+
+'''
+Modélisation et traitement des dates 
+
+2 approches sont possibles pour modéliser les dates :
+- Construire la liste explicitement, sous formes d'objets datetime 
+- Travailler avec des fractions d'année sous forme de valeurs décimales
+'''
+
 dates = [dt.datetime(2020,1,1), dt.datetime(2020,7,1), dt.datetime(2021,1,1)]
-print("Dates 1")
+print("Dates format explicites")
 print((dates[1] - dates[0]).days / 365.0)
-print("\n Dates 2")
 print((dates[2] - dates[1]).days / 365.0)
 
+print("\nDates format fractions d'année")
 fractions = [0.0, 0.5, 1.0]
+
 
 '''
 L'équivalence est imparfaite car une fraction d'année tombe rarement sur le même début qu'une date exprimée explicitement. (0 heure le premier jour)
@@ -71,5 +75,15 @@ def get_year_deltas(date_list, day_count=365.):
     return np.array(delta_list)
 
 # La fonction s'utilise de la manière suivante : 
-print("\n Fonction get_year_deltas()")
+print("\nFonction get_year_deltas()")
 print(get_year_deltas(dates))
+
+
+
+
+'''
+Taux court constant 
+
+
+
+'''
