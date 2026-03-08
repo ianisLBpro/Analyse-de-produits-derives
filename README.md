@@ -20,11 +20,11 @@ Ce projet regroupe l'ensemble de mes travaux sur l'évaluation des produits dér
 
 Ce module pose les fondations théoriques et techniques de l'évaluation des produits dérivés : théorème fondamental, actualisation risque-neutre et construction de l'environnement de marché.
 
-| Fichier | Description |
-|---|---|
-| `1_Theoreme_fondamental_d_evaluation_des_actifs.ipynb` | Formalisation du cadre théorique d'absence d'arbitrage et existence de la mesure risque-neutre. |
-| `2_Actualisation_risque_neutre.py` | Représentation du temps en Python, fonction `get_year_deltas` et classe `constant_short_rate` pour l'actualisation à taux court constant. |
-| `3_Environnement_de_marche.py` | Classe `market_environment` regroupant en un seul objet tous les paramètres nécessaires à la simulation et à la valorisation d'un dérivé. |
+| Fichier | Statut | Description |
+|---|---|---|
+| `1_Theoreme_fondamental_d_evaluation_des_actifs.ipynb` | ✅ Disponible | Formalisation du cadre théorique d'absence d'arbitrage et existence de la mesure risque-neutre. |
+| `2_Actualisation_risque_neutre.py` | ✅ Disponible | Représentation du temps en Python, fonction `get_year_deltas` et classe `constant_short_rate` pour l'actualisation à taux court constant. |
+| `3_Environnement_de_marche.py` | ✅ Disponible | Classe `market_environment` regroupant en un seul objet tous les paramètres nécessaires à la simulation et à la valorisation d'un dérivé. |
 
 ---
 
