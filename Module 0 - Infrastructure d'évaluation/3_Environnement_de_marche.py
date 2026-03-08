@@ -23,7 +23,7 @@ plt.style.use('seaborn-v0_8')
 mpl.rcParams['font.family'] = 'serif'
 
 import sys
-sys.path.append('..')
+sys.path.append('.')
 
 from dx.get_year_deltas import get_year_deltas
 from dx.constant_short_rate import constant_short_rate
@@ -107,7 +107,7 @@ me.add_constant('initial_value', 36.)
 me.add_constant('volatility', 0.2)
 me.add_constant('final_date', dt.datetime(2020, 12, 31))
 me.add_constant('currency', 'EUR')
-me.add_constant('frequency', 'M')
+me.add_constant('frequency', 'ME')  # fréquence mensuelle (fin de mois)
 me.add_constant('paths', 10000)
 
 # On ajoute la courbe d'actualisation

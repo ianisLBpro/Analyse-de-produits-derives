@@ -6,13 +6,11 @@ Ce projet regroupe l'ensemble de mes travaux sur l'évaluation des produits dér
 
 | Catégorie | Librairies |
 |---|---|
-| Calcul scientifique | `numpy`, `scipy`, `pandas` |
-| Visualisation | `matplotlib`, `plotly` |
-| Machine learning | `scikit-learn`, `torch` |
-| Finance | `yfinance` |
-| Simulation numérique | `numba`, `statsmodels` |
+| Calcul scientifique | `numpy`, `pandas` |
+| Visualisation | `matplotlib` |
+| Utilitaires | `tabulate` |
 
-> **Python 3.11+** — Voir le fichier [INSTALLATION.md](INSTALLATION.md) pour la mise en place de l'environnement virtuel.
+> **Python 3.11+** — Voir le fichier [installation.md](installation.md) pour la mise en place de l'environnement virtuel.
 
 ---
 
@@ -22,8 +20,8 @@ Ce projet regroupe l'ensemble de mes travaux sur l'évaluation des produits dér
 
 Ce module pose les fondations théoriques et techniques de l'évaluation des produits dérivés : théorème fondamental, actualisation risque-neutre et construction de l'environnement de marché.
 
-| Fichier | Statut | Description |
-|---|---|---|
+| Fichier | Description |
+|---|---|
 | `1_Theoreme_fondamental_d_evaluation_des_actifs.ipynb` | Formalisation du cadre théorique d'absence d'arbitrage et existence de la mesure risque-neutre. |
 | `2_Actualisation_risque_neutre.py` | Représentation du temps en Python, fonction `get_year_deltas` et classe `constant_short_rate` pour l'actualisation à taux court constant. |
 | `3_Environnement_de_marche.py` | Classe `market_environment` regroupant en un seul objet tous les paramètres nécessaires à la simulation et à la valorisation d'un dérivé. |
@@ -36,9 +34,9 @@ Ce module implémente les processus stochastiques nécessaires à la simulation 
 
 | Fichier | Statut | Description |
 |---|---|---|
-| `1_Generation_de_nombres_aleatoires.py` | À venir | Génération de variables aléatoires pour les simulations Monte Carlo. |
-| `2_Classe_de_simulation_generique.py` | À venir | Classe mère abstraite pour tous les processus stochastiques. |
-| `3_Mouvement_brownien_geometrique.py` | À venir | Simulation du mouvement brownien géométrique (dynamique Black-Scholes). |
+| `1_Generation_de_nombres_aleatoires.py` | ✅ Disponible | Génération de variables aléatoires pour les simulations Monte Carlo. |
+| `2_Classe_de_simulation_generique.py` | ✅ Disponible | Classe mère abstraite pour tous les processus stochastiques. |
+| `3_Mouvement_brownien_geometrique.py` | ✅ Disponible | Simulation du mouvement brownien géométrique (dynamique Black-Scholes). |
 | `4_Diffusion_par_sauts.py` | À venir | Modèle de Merton avec sauts log-normaux. |
 | `5_Diffusion_a_racine_carree_CIR.py` | À venir | Processus de Cox-Ingersoll-Ross pour la modélisation des taux d'intérêt. |
 
