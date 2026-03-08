@@ -10,7 +10,7 @@ Ce projet regroupe l'ensemble de mes travaux sur l'évaluation des produits dér
 | Visualisation | `matplotlib` |
 | Utilitaires | `tabulate` |
 
-> **Python 3.11+** — Voir le fichier [installation.md](installation.md) pour la mise en place de l'environnement virtuel.
+> **Python 3.14** — Voir le fichier [installation.md](installation.md) pour la mise en place de l'environnement virtuel.
 
 ---
 
@@ -34,10 +34,10 @@ Ce module implémente les processus stochastiques nécessaires à la simulation 
 
 | Fichier | Statut | Description |
 |---|---|---|
-| `1_Generation_de_nombres_aleatoires.py` | ✅ Disponible | Génération de variables aléatoires pour les simulations Monte Carlo. |
-| `2_Classe_de_simulation_generique.py` | ✅ Disponible | Classe mère abstraite pour tous les processus stochastiques. |
-| `3_Mouvement_brownien_geometrique.py` | ✅ Disponible | Simulation du mouvement brownien géométrique (dynamique Black-Scholes). |
-| `4_Diffusion_par_sauts.py` | À venir | Modèle de Merton avec sauts log-normaux. |
+| `1_Generation_de_nombres_aleatoires.py` | ✅ Disponible | Fonction `sn_random_numbers()` générant des nombres pseudo-aléatoires en distribution normale standard, avec options de réduction de variance : variantes antithétiques et moment matching. |
+| `2_Classe_de_simulation_generique.py` | ✅ Disponible | Classe mère `simulation_class` pour tous les processus stochastiques : initialisation depuis un `market_environment`, méthodes `generate_time_grid()` (grille temporelle commune) et `generate_instrument_values()` (valeurs simulées). |
+| `3_Mouvement_brownien_geometrique.py` | ✅ Disponible | Classe `geometric_brownian_motion` héritant de `simulation_class` : discrétisation d'Euler du GBM sous mesure risque-neutre (`dS = r·S·dt + σ·S·dZ`), avec correction d'Itô `(r - σ²/2)`. |
+| `4_Diffusion_par_sauts.py` | ✅ Disponible | Modèle de Merton avec sauts log-normaux : discrétisation d'Euler du processus, correction de drift `r_J = λ(e^(μ_J + σ_J²/2) - 1)`, deux sources aléatoires indépendantes (diffusion continue + amplitude des sauts), classe `jump_diffusion` héritant de `simulation_class`. |
 | `5_Diffusion_a_racine_carree_CIR.py` | À venir | Processus de Cox-Ingersoll-Ross pour la modélisation des taux d'intérêt. |
 
 ---

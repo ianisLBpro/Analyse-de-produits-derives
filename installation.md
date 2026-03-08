@@ -2,7 +2,7 @@
 
 ## Prérequis
 
-- Python 3.11+
+- Python 3.14
 - Git
 
 ## Mise en place
