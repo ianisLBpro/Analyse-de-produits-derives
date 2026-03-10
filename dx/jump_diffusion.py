@@ -1,4 +1,3 @@
-
 import numpy as np
 from dx.sn_random_numbers import sn_random_numbers
 from dx.simulation_class import simulation_class

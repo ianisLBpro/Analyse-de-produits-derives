@@ -1,37 +1,7 @@
-'''
-5_Diffusion_a_racine_carree_CIR
-
-Simulation numérique du modèle Cox-Ingersoll-Ross (CIR) par schéma d'Euler
-avec troncature complète.
-
-Paramètres utilisés :
-    initial_value = valeur initiale du processus
-    kappa         = vitesse de retour à la moyenne
-    theta         = niveau moyen de long terme
-    volatility    = paramètre de volatilité (sigma)
-    final_date    = horizon de simulation
-    frequency     = fréquence de la grille temporelle
-    paths         = nombre de trajectoires (Monte Carlo)
-
-Outputs :
-    - Trajectoires simulées du processus CIR
-    - Visualisation du mean-reversion autour de theta
-
-Voir 5.1_Explication_CIR pour la théorie complète.
-'''
-
-import sys
-sys.path.append('.')
-
 import numpy as np
-import matplotlib.pyplot as plt
-import datetime as dt
 
-from dx.sn_random_numbers import sn_random_numbers
 from dx.simulation_class import simulation_class
-from dx.market_environment import market_environment
-from dx.constant_short_rate import constant_short_rate
-
+from dx.sn_random_numbers import sn_random_numbers
 
 class square_root_diffusion(simulation_class):
     ''' Classe de génération de trajectoires simulées selon le modèle
@@ -104,50 +74,3 @@ class square_root_diffusion(simulation_class):
                         self.volatility * np.sqrt(dt) * ran)
             paths[t] = np.maximum(0, paths_[t])
         self.instrument_values = paths
-
-
-
-'''
-Exercice : Trajectoires simulées d'une classe de diffusion à racine carré CIR 
-
-La visualisation des trajectoires simulées du processus CIR met en évidence 
-le phénomène d'inversion moyenne (mean-reversion) puisque les trajectoires simulées
-convergent en moyenne vers le theta moyen à long terme (trait tireté horizontal) qui est supposé égal à 0.2. 
-Le paramètre kappa contrôle la vitesse de convergence vers ce niveau moyen, 
-tandis que sigma influence la volatilité des trajectoires autour de ce niveau. 
-'''
-
-# Création de l'environnement de marché pour la simulation
-me_srd = market_environment('me_srd', dt.datetime(2020, 1, 1))
-
-# Paramètres généraux de simulation
-me_srd.add_constant('initial_value', .25)
-me_srd.add_constant('volatility', 0.05)
-me_srd.add_constant('final_date', dt.datetime(2020, 12, 31))
-me_srd.add_constant('currency', 'EUR')
-me_srd.add_constant('frequency', 'W')
-me_srd.add_constant('paths', 10000)
-
-# Paramètres spécifiques à cet objet modèle 
-me_srd.add_constant('kappa', 4.0)
-me_srd.add_constant('theta', 0.2)
-
-# L'objet discount_curve est requis par défaut, mais pas nécessaire pour la simulation
-me_srd.add_curve('discount_curve', constant_short_rate('r', 0.0))
-
-# Instanciation de l'objet
-srd = square_root_diffusion('srd', me_srd)
-
-# Simulation des trajectoires pour en sélectionner 10 
-srd_paths = srd.get_instrument_values()[:, :10]
-
-# Visualisation des trajectoires simulées du processus CIR
-plt.figure(figsize=(10, 6))
-p1 = plt.plot(srd.time_grid, srd.get_instrument_values()[:, :10])
-p2 = plt.axhline(me_srd.get_constant('theta'), color='r', ls='--', lw=2.0)
-plt.legend([p1[0], p2], ['Trajectoires simulées', 'Moyenne long terme (theta)'], loc=1)
-plt.xticks(rotation=30)
-plt.xlabel('Date')
-plt.ylabel('Valeur')
-plt.tight_layout()
-plt.show()

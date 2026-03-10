@@ -1,7 +1,7 @@
 '''
 4_Diffusion_par_sauts
 
-Le modèle de diffusion par sauts étend le GBM en ajoutant des sauts discontinus au processus.
+Le modèle de diffusion par sauts de Merton étend le GBM en ajoutant des sauts discontinus au processus.
 
 L'équation différentielle stochastique du modèle de diffusion par sauts de Merton est :
 

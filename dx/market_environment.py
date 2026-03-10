@@ -1,4 +1,3 @@
-
 class market_environment(object):
     ''' Modélise un environnement de marché pour évaluation
 

@@ -38,7 +38,8 @@ Ce module implémente les processus stochastiques nécessaires à la simulation 
 | `2_Classe_de_simulation_generique.py` | ✅ Disponible | Classe mère `simulation_class` pour tous les processus stochastiques : initialisation depuis un `market_environment`, méthodes `generate_time_grid()` (grille temporelle commune) et `generate_instrument_values()` (valeurs simulées). |
 | `3_Mouvement_brownien_geometrique.py` | ✅ Disponible | Classe `geometric_brownian_motion` héritant de `simulation_class` : discrétisation d'Euler du GBM sous mesure risque-neutre (`dS = r·S·dt + σ·S·dZ`), avec correction d'Itô `(r - σ²/2)`. |
 | `4_Diffusion_par_sauts.py` | ✅ Disponible | Modèle de Merton avec sauts log-normaux : discrétisation d'Euler du processus, correction de drift `r_J = λ(e^(μ_J + σ_J²/2) - 1)`, deux sources aléatoires indépendantes (diffusion continue + amplitude des sauts), classe `jump_diffusion` héritant de `simulation_class`. |
-| `5_Diffusion_a_racine_carree_CIR.py` | À venir | Processus de Cox-Ingersoll-Ross pour la modélisation des taux d'intérêt. |
+| `5_Diffusion_a_racine_carree_CIR.py` | ✅ Disponible | Classe `square_root_diffusion` héritant de `simulation_class` : processus de Cox-Ingersoll-Ross (`dx = κ(θ - x)dt + σ√x dZ`), schéma d'Euler avec troncature complète, mean-reversion autour de `θ` avec vitesse `κ`. |
+| `5.1_Explication_CIR.ipynb` | ✅ Disponible | Notebook théorique sur le modèle CIR : intuition financière (retour à la moyenne, positivité), analogie ressort, décomposition de l'EDS, et lien avec le modèle de Heston (volatilité stochastique). |
 
 ---
 
